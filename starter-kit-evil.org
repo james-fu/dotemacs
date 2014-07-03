@@ -1,0 +1,19 @@
+#+TITLE: Starter Kit vim
+#+OPTIONS: toc:nil num:nil ^:nil
+
+This is part of the [[file:starter-kit.org][Emacs Starter Kit]].
+
+* Starter kit Vim-mode
+
+Support for the vim mode editing.
+
+** Use vim mode editing and short cuts instead of Emacs's native ones.
+
+#+begin_src emacs-lisp
+  (require 'evil)
+  (evil-mode 1)
+ 
+#+end_src
+
+
+

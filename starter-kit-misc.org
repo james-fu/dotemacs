@@ -199,5 +199,17 @@ This is turned off, as the color theme handles it.
     '(progn
        (set-face-foreground 'magit-diff-add "green3")
        (set-face-foreground 'magit-diff-del "red3")))
-
 #+end_src
+
+** fill column indicator
+This will draw a vertical line at around 80 bit, helping to 
+regulate the width of the text and code.
+
+#+begin_src emacs-lisp
+  (require 'fill-column-indicator)
+  (define-globalized-minor-mode
+	global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  (global-fci-mode t)
+#+end_src
+
+
