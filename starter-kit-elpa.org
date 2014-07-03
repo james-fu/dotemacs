@@ -45,6 +45,9 @@ The following packages will be downloaded and installed.
                                 'yasnippet
                                 'zenburn-theme
                                 'auctex
+				'auto-complete-auctex
+				'fill-column-indicator
+				'highlight-current-line
                                 'ess
 				'evil
                                 'r-autoyas                                                              
