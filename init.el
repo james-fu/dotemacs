@@ -5,6 +5,22 @@
 ;; This is the first thing to get loaded.
 ;;
 
+
+;; set $PATH variable within emacs to match that from .bashrc
+;; this will enable the emacs using the newly version of python 
+;; and ipython packages installed from Anaconda
+;; Ensure that '~/anaconda/bin' is added in the $PATH
+;; export PATH=$PATH:/home/james/anaconda/bin
+
+(defun set-exec-path-from-shell-PATH ()
+        (interactive)
+        (let ((path-from-shell (replace-regexp-in-string "^.*\n.*shell\n" "" (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+        (setenv "PATH" path-from-shell)
+        (setq exec-path (split-string path-from-shell path-separator))))
+ 
+(set-exec-path-from-shell-PATH)
+
+
 ;; setq dotfiles-dir (file-name-directory (or (buffer-file-name) load-file-name)))
 (setq dotfiles-dir (file-name-directory (or load-file-name (buffer-file-name))))
 
@@ -58,9 +74,9 @@
 (require 'org)
 (org-babel-load-file (expand-file-name "starter-kit.org" dotfiles-dir))
 
+;; activate vim mood
+;(require 'evil)
+;(evil-mode 1)
+
 ;;; init.el ends here
 (put 'upcase-region 'disabled nil)
-
-;;; activate vim mode
-(require 'evil)
-(evil-mode 1)
